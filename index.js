@@ -1,3 +1,4 @@
+// This is the current link being used.
 var fileLink = "https://raw.githubusercontent.com/dwyl/english-words/master/words.txt"
 
 //code
