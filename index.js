@@ -1,4 +1,3 @@
-// This is the current link being used.
 var fileLink = "https://raw.githubusercontent.com/dwyl/english-words/master/words.txt"
 
 //code
@@ -15,6 +14,7 @@ https.get(fileLink, (res) => {
 
   res.on('data', async (d) => {
     var words = d.toString().split("\n")
+    // var words = ["test","ea","potato","apple","bannana","metal"]
     var validUser = []
 
     for (let i = 0; i < words.length; i++) {
@@ -24,9 +24,10 @@ https.get(fileLink, (res) => {
         
             res.on('data', async (d) => {
                 var jsonData = JSON.parse(d)
-                if(jsonData.msg == "valid username"){
+                if(jsonData.msg == "valid username" || true){
                     console.log(words[i])
                     validUser.push(words[i]+" \n")
+                    fs.writeFileSync("validUsernamesForScratch.txt",words.toString().replace("/,/g","\n"))
                 }
                 if(jsonData.msg == "Too many requests"){
                     console.warn("Too many requests! Waiting 2 seconds...")
