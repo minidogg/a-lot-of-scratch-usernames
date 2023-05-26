@@ -24,7 +24,7 @@ https.get(fileLink, (res) => {
         
             res.on('data', async (d) => {
                 var jsonData = JSON.parse(d)
-                if(jsonData.msg == "valid username" || true){
+                if(jsonData.msg == "valid username"){
                     console.log(words[i])
                     validUser.push(words[i]+" \n")
                     fs.writeFileSync("validUsernamesForScratch.txt",words.toString().replace("/,/g","\n"))
